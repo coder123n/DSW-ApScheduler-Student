@@ -8,7 +8,8 @@ import time
 app = Flask(__name__)
 
 #TODO: add the code for the ApScheduler here
-
+def scheduled_task():
+    return print('It is now 7:00am')
 
  
 @app.route('/')
