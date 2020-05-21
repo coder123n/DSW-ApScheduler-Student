@@ -13,7 +13,7 @@ def job_function():
 @app.route('/')
 def welcome():
     scheduler = BackgroundScheduler({'apscheduler.timezone':'America/Los_Angeles'})
-    scheduler.add_job(job_function, trigger='cron', hour=17, minute=10)
+    scheduler.add_job(job_function, trigger='cron', hour=17, minute=12)
     scheduler.start()
     return render_template('home.html')
   
