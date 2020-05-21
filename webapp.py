@@ -11,7 +11,7 @@ def job_function():
     return print("What's up?!")
 
 scheduler = BackgroundScheduler({'apscheduler.timezone':'America/Los_Angeles'})
-scheduler.add_job(job_function, trigger='cron', hour=9, minute=21)
+scheduler.add_job(job_function, trigger='interval', seconds=15)
 #scheduler.start()
 @app.route('/')
 def welcome():
