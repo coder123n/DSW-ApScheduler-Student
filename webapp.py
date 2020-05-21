@@ -10,12 +10,11 @@ app = Flask(__name__)
 def job_function():
     return print("What's up?!")
 
+scheduler = BackgroundScheduler({'apscheduler.timezone':'America/Los_Angeles'})
+scheduler.add_job(job_function, trigger='cron', hour=17, minute=12)
+scheduler.start()
 @app.route('/')
 def welcome():
-    scheduler = BackgroundScheduler({'apscheduler.timezone':'America/Los_Angeles'})
-    scheduler.add_job(job_function, trigger='cron', hour=17, minute=12)
-   job_function, 'interval', hours=2
-    scheduler.start()
     return render_template('home.html')
   
 if __name__=="__main__":
